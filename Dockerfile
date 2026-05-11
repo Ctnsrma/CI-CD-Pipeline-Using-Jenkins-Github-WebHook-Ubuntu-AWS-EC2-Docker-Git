@@ -9,6 +9,7 @@ COPY . .
 
 RUN npm run build
 
+# Port for App
 EXPOSE 3000
 
 CMD ["node","dist/main"]
