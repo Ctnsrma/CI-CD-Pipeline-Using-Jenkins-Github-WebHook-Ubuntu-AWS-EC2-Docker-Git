@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps{
-                sh 'docker build -t $IMAGE_NAME'
+                sh 'docker build -t $IMAGE_NAME .'
             }
         }
         stage('Stop & Remove Previous Container'){
@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Send Email Notification'){
             steps{
-                emailtext(
+                emailext(
                     subject: "App Deployed Successfully on EC2",
                     body: """
                     Your App is Deployed
