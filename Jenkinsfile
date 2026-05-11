@@ -37,9 +37,9 @@ pipeline {
         stage('Send Email Notification'){
             steps{
                 emailtext(
-                    subject: "App Deployed Successfully on EC2"
+                    subject: "App Deployed Successfully on EC2",
                     body: "Your App is Deployed
-                    http://56.228.29.97:${PORT}/"
+                    http://56.228.29.97:${PORT}/",
                     to: "${EMAIL}"
                 )
             }
