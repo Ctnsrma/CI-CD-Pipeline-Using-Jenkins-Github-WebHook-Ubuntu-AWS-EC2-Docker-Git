@@ -38,8 +38,11 @@ pipeline {
             steps{
                 emailtext(
                     subject: "App Deployed Successfully on EC2",
-                    body: "Your App is Deployed
-                    http://56.228.29.97:${PORT}/",
+                    body: """
+                    Your App is Deployed
+
+                    http://56.228.29.97:${PORT}/
+                    """,
                     to: "${EMAIL}"
                 )
             }
