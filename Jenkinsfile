@@ -44,6 +44,7 @@ pipeline {
                     http://56.228.29.97:${PORT}/
                     """,
                     to: "${EMAIL}"
+                    
                 )
             }
         }
