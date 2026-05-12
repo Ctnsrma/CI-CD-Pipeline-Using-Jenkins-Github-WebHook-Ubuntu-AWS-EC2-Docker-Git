@@ -19,6 +19,12 @@ lerna-debug.log*
 /coverage
 /.nyc_output
 
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
 # IDEs and editors
 /.idea
 .project
