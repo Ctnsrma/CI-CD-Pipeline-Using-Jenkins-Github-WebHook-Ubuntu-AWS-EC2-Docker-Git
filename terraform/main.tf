@@ -1,9 +1,7 @@
 resource "aws_security_group" "devops_sg" {
-  name        = "devops-security-group"
-  description = "Security group for Jenkins and NestJS app"
+  name = "devops-security-group"
 
   ingress {
-    description = "SSH"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -11,7 +9,6 @@ resource "aws_security_group" "devops_sg" {
   }
 
   ingress {
-    description = "Jenkins"
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
@@ -19,7 +16,6 @@ resource "aws_security_group" "devops_sg" {
   }
 
   ingress {
-    description = "NestJS App"
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
@@ -32,10 +28,6 @@ resource "aws_security_group" "devops_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-  tags = {
-    Name = "devops-security-group"
-  }
 }
 
 resource "aws_instance" "devops_server" {
@@ -44,12 +36,14 @@ resource "aws_instance" "devops_server" {
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.devops_sg.id]
 
+  user_data = file("user_data.sh")
+
   root_block_device {
     volume_size = 20
     volume_type = "gp3"
   }
 
   tags = {
-    Name = "DevOps-Server"
+    Name = "Terraform-DevOps-Server"
   }
 }
