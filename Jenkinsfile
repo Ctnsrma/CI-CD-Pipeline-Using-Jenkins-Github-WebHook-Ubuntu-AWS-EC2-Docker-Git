@@ -41,7 +41,7 @@ pipeline {
                     body: """
                     Your App is Deployed
 
-                    http://56.228.29.97:${PORT}/
+                    http://16.170.202.65:${PORT}/
                     """,
                     to: "${EMAIL}"
                     
