@@ -55,4 +55,5 @@ npm install -g @nestjs/cli
 
 echo "===== BASIC SETUP COMPLETE ====="
 
+# finally
 # finally done
